@@ -1,8 +1,9 @@
 import { useState } from "react"
+import  PropTypes from 'prop-types'
 
 export const AddCategory = ( { onNewCategory } ) => {
   
-    const [inputValue, setinputValue] = useState()
+    const [inputValue, setinputValue] = useState('')
 
     const onInputChange = ({target}) => {
         setinputValue( target.value )
@@ -24,7 +25,7 @@ export const AddCategory = ( { onNewCategory } ) => {
 
     return (
         // <form onSubmit={ (event)=> onSubmit(event) }> siempre que se envie un argumento que seguidamente se utiliza se puede hacer de esta manera
-        <form onSubmit={ onSubmit }>
+        <form onSubmit={ onSubmit } aria-label="form">
             
             <input 
                 type="text" 
@@ -34,4 +35,9 @@ export const AddCategory = ( { onNewCategory } ) => {
             />
         </form>
     )
+}
+
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired
 }
